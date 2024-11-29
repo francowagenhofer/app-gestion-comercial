@@ -113,23 +113,25 @@ Public Class VentaNegocio
         End Try
     End Sub
 
+
     Public Sub ModificarItemsDeVenta(idVenta As Integer, items As List(Of VentaItem))
         Dim accesoDatos As New AccesoADatos()
         Try
-            Dim consultaEliminarItems As String = "DELETE FROM ventasitems WHERE IDVenta = @IDVenta"
-            accesoDatos.SetearConsulta(consultaEliminarItems)
-            accesoDatos.SetearParametro("@IDVenta", idVenta)
-            accesoDatos.EjecutarAccion()
-
             For Each item As VentaItem In items
-                Dim consultaInsertarItem As String = "INSERT INTO ventasitems (IDVenta, IDProducto, PrecioUnitario, Cantidad, PrecioTotal) " &
-                                                 "VALUES (@IDVenta, @IDProducto, @PrecioUnitario, @Cantidad, @PrecioTotal)"
-                accesoDatos.SetearConsulta(consultaInsertarItem)
+                Dim consultaUpdate As String = "UPDATE ventasitems SET " &
+                                           "PrecioUnitario = @PrecioUnitario, " &
+                                           "Cantidad = @Cantidad, " &
+                                           "PrecioTotal = @PrecioTotal, " &
+                                           "IDProducto = @IDProducto " &
+                                           "WHERE IDVenta = @IDVenta AND IDProducto = @IDProducto"
+
+                accesoDatos.SetearConsulta(consultaUpdate)
                 accesoDatos.SetearParametro("@IDVenta", idVenta)
                 accesoDatos.SetearParametro("@IDProducto", item.IDProducto)
                 accesoDatos.SetearParametro("@PrecioUnitario", item.PrecioUnitario)
                 accesoDatos.SetearParametro("@Cantidad", item.Cantidad)
                 accesoDatos.SetearParametro("@PrecioTotal", item.PrecioTotal)
+
                 accesoDatos.EjecutarAccion()
             Next
         Catch ex As Exception

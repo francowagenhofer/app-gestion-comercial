@@ -33,7 +33,6 @@ Partial Class FrmVentas
         Me.btnModificar = New System.Windows.Forms.Button()
         Me.btnAgregar = New System.Windows.Forms.Button()
         Me.dgvVentas = New System.Windows.Forms.DataGridView()
-        Me.txtError = New System.Windows.Forms.TextBox()
         Me.btnActualizarLista = New System.Windows.Forms.Button()
         CType(Me.dgvVentas, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -145,15 +144,6 @@ Partial Class FrmVentas
         Me.dgvVentas.Size = New System.Drawing.Size(706, 202)
         Me.dgvVentas.TabIndex = 17
         '
-        'txtError
-        '
-        Me.txtError.Location = New System.Drawing.Point(885, 50)
-        Me.txtError.Multiline = True
-        Me.txtError.Name = "txtError"
-        Me.txtError.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtError.Size = New System.Drawing.Size(407, 291)
-        Me.txtError.TabIndex = 28
-        '
         'btnActualizarLista
         '
         Me.btnActualizarLista.Location = New System.Drawing.Point(617, 297)
@@ -168,9 +158,8 @@ Partial Class FrmVentas
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ButtonHighlight
-        Me.ClientSize = New System.Drawing.Size(1320, 425)
+        Me.ClientSize = New System.Drawing.Size(927, 405)
         Me.Controls.Add(Me.btnActualizarLista)
-        Me.Controls.Add(Me.txtError)
         Me.Controls.Add(Me.txtFiltroAvanzado)
         Me.Controls.Add(Me.cbCampoBusqueda)
         Me.Controls.Add(Me.btnVerDetalle)
@@ -201,6 +190,5 @@ Partial Class FrmVentas
     Friend WithEvents btnModificar As Button
     Friend WithEvents btnAgregar As Button
     Friend WithEvents dgvVentas As DataGridView
-    Friend WithEvents txtError As TextBox
     Friend WithEvents btnActualizarLista As Button
 End Class

@@ -35,12 +35,12 @@ Partial Class frmReporteVenta
         'dgvReporteVenta
         '
         Me.dgvReporteVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReporteVenta.Location = New System.Drawing.Point(42, 291)
+        Me.dgvReporteVenta.Location = New System.Drawing.Point(42, 307)
         Me.dgvReporteVenta.Name = "dgvReporteVenta"
         Me.dgvReporteVenta.ReadOnly = True
         Me.dgvReporteVenta.RowHeadersWidth = 51
         Me.dgvReporteVenta.RowTemplate.Height = 24
-        Me.dgvReporteVenta.Size = New System.Drawing.Size(856, 129)
+        Me.dgvReporteVenta.Size = New System.Drawing.Size(922, 129)
         Me.dgvReporteVenta.TabIndex = 0
         '
         'dgvVentas
@@ -51,7 +51,7 @@ Partial Class frmReporteVenta
         Me.dgvVentas.RowHeadersWidth = 51
         Me.dgvVentas.RowTemplate.Height = 24
         Me.dgvVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvVentas.Size = New System.Drawing.Size(683, 174)
+        Me.dgvVentas.Size = New System.Drawing.Size(714, 174)
         Me.dgvVentas.TabIndex = 1
         '
         'Label1
@@ -60,23 +60,23 @@ Partial Class frmReporteVenta
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(42, 36)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(147, 25)
+        Me.Label1.Size = New System.Drawing.Size(120, 25)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "Lista de Ventas"
+        Me.Label1.Text = "Lista Ventas"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(37, 263)
+        Me.Label2.Location = New System.Drawing.Point(37, 279)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(164, 25)
+        Me.Label2.Size = New System.Drawing.Size(137, 25)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Reporte de Venta"
+        Me.Label2.Text = "Reporte Venta"
         '
         'btnGenerarReporte
         '
-        Me.btnGenerarReporte.Location = New System.Drawing.Point(731, 106)
+        Me.btnGenerarReporte.Location = New System.Drawing.Point(797, 123)
         Me.btnGenerarReporte.Name = "btnGenerarReporte"
         Me.btnGenerarReporte.Size = New System.Drawing.Size(167, 58)
         Me.btnGenerarReporte.TabIndex = 4
@@ -85,7 +85,7 @@ Partial Class frmReporteVenta
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(405, 451)
+        Me.btnSalir.Location = New System.Drawing.Point(426, 466)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(158, 58)
         Me.btnSalir.TabIndex = 5
@@ -96,7 +96,7 @@ Partial Class frmReporteVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(946, 546)
+        Me.ClientSize = New System.Drawing.Size(1021, 567)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnGenerarReporte)
         Me.Controls.Add(Me.Label2)

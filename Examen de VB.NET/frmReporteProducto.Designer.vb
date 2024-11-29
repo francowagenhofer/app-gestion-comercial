@@ -34,7 +34,7 @@ Partial Class frmReporteProducto
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(670, 376)
+        Me.btnSalir.Location = New System.Drawing.Point(670, 396)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(167, 58)
         Me.btnSalir.TabIndex = 6
@@ -53,22 +53,23 @@ Partial Class frmReporteProducto
         'lblReporteProducto
         '
         Me.lblReporteProducto.AutoSize = True
-        Me.lblReporteProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblReporteProducto.Location = New System.Drawing.Point(12, 278)
+        Me.lblReporteProducto.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblReporteProducto.Location = New System.Drawing.Point(13, 287)
         Me.lblReporteProducto.Name = "lblReporteProducto"
-        Me.lblReporteProducto.Size = New System.Drawing.Size(190, 25)
+        Me.lblReporteProducto.Size = New System.Drawing.Size(413, 44)
         Me.lblReporteProducto.TabIndex = 10
-        Me.lblReporteProducto.Text = "Reporte de Producto"
+        Me.lblReporteProducto.Text = "Reporte Producto - Cantidad de ventas mensuales" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.lblReporteProducto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lblListaProductos
         '
         Me.lblListaProductos.AutoSize = True
         Me.lblListaProductos.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblListaProductos.Location = New System.Drawing.Point(12, 45)
+        Me.lblListaProductos.Location = New System.Drawing.Point(12, 34)
         Me.lblListaProductos.Name = "lblListaProductos"
-        Me.lblListaProductos.Size = New System.Drawing.Size(173, 25)
+        Me.lblListaProductos.Size = New System.Drawing.Size(146, 25)
         Me.lblListaProductos.TabIndex = 9
-        Me.lblListaProductos.Text = "Lista de Productos"
+        Me.lblListaProductos.Text = "Lista Productos"
         '
         'dgvProductos
         '
@@ -84,7 +85,7 @@ Partial Class frmReporteProducto
         'dgvReporteProducto
         '
         Me.dgvReporteProducto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvReporteProducto.Location = New System.Drawing.Point(17, 306)
+        Me.dgvReporteProducto.Location = New System.Drawing.Point(17, 334)
         Me.dgvReporteProducto.Name = "dgvReporteProducto"
         Me.dgvReporteProducto.ReadOnly = True
         Me.dgvReporteProducto.RowHeadersWidth = 51

@@ -29,7 +29,7 @@ Partial Class FrmReportes
         '
         'btnReporteVenta
         '
-        Me.btnReporteVenta.Location = New System.Drawing.Point(92, 48)
+        Me.btnReporteVenta.Location = New System.Drawing.Point(132, 78)
         Me.btnReporteVenta.Name = "btnReporteVenta"
         Me.btnReporteVenta.Size = New System.Drawing.Size(191, 68)
         Me.btnReporteVenta.TabIndex = 0
@@ -38,7 +38,7 @@ Partial Class FrmReportes
         '
         'btnReporteProducto
         '
-        Me.btnReporteProducto.Location = New System.Drawing.Point(92, 122)
+        Me.btnReporteProducto.Location = New System.Drawing.Point(132, 171)
         Me.btnReporteProducto.Name = "btnReporteProducto"
         Me.btnReporteProducto.Size = New System.Drawing.Size(191, 68)
         Me.btnReporteProducto.TabIndex = 1
@@ -47,7 +47,7 @@ Partial Class FrmReportes
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(92, 232)
+        Me.btnSalir.Location = New System.Drawing.Point(132, 304)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(191, 68)
         Me.btnSalir.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class FrmReportes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(380, 353)
+        Me.ClientSize = New System.Drawing.Size(467, 449)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnReporteProducto)
         Me.Controls.Add(Me.btnReporteVenta)

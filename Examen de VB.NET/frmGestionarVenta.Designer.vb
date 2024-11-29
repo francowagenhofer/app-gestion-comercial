@@ -28,7 +28,6 @@ Partial Class FrmGestionarVenta
         Me.btnCancelar = New System.Windows.Forms.Button()
         Me.lblCliente = New System.Windows.Forms.Label()
         Me.lblFecha = New System.Windows.Forms.Label()
-        Me.txtError = New System.Windows.Forms.TextBox()
         Me.lblProducto = New System.Windows.Forms.Label()
         Me.cbProducto = New System.Windows.Forms.ComboBox()
         Me.nudCantidad = New System.Windows.Forms.NumericUpDown()
@@ -93,15 +92,6 @@ Partial Class FrmGestionarVenta
         Me.lblFecha.Size = New System.Drawing.Size(48, 16)
         Me.lblFecha.TabIndex = 18
         Me.lblFecha.Text = "Fecha:"
-        '
-        'txtError
-        '
-        Me.txtError.Location = New System.Drawing.Point(634, 43)
-        Me.txtError.Multiline = True
-        Me.txtError.Name = "txtError"
-        Me.txtError.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtError.Size = New System.Drawing.Size(320, 348)
-        Me.txtError.TabIndex = 29
         '
         'lblProducto
         '
@@ -176,7 +166,7 @@ Partial Class FrmGestionarVenta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(959, 454)
+        Me.ClientSize = New System.Drawing.Size(630, 424)
         Me.Controls.Add(Me.lblMontoTotal)
         Me.Controls.Add(Me.txtTotal)
         Me.Controls.Add(Me.dgvItems)
@@ -185,7 +175,6 @@ Partial Class FrmGestionarVenta
         Me.Controls.Add(Me.nudCantidad)
         Me.Controls.Add(Me.lblProducto)
         Me.Controls.Add(Me.cbProducto)
-        Me.Controls.Add(Me.txtError)
         Me.Controls.Add(Me.lblFecha)
         Me.Controls.Add(Me.lblCliente)
         Me.Controls.Add(Me.btnCancelar)
@@ -207,7 +196,6 @@ Partial Class FrmGestionarVenta
     Friend WithEvents btnCancelar As Button
     Friend WithEvents lblCliente As Label
     Friend WithEvents lblFecha As Label
-    Friend WithEvents txtError As TextBox
     Friend WithEvents lblProducto As Label
     Friend WithEvents cbProducto As ComboBox
     Friend WithEvents nudCantidad As NumericUpDown

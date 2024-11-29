@@ -30,6 +30,11 @@
                 Case "Modificar"
                     Text = "Modificar Venta"
                     btnAceptar.Text = "Guardar"
+                    cbProducto.Enabled = False
+                    nudCantidad.Enabled = False
+                    dgvItems.Enabled = False
+                    txtTotal.Enabled = False
+
                     If ventaActual IsNot Nothing Then
                         CargarDatosVenta()
                         CalcularTotal()
@@ -46,14 +51,14 @@
                 Case "Ver Detalle"
                     Text = "Ver Detalle de Venta"
                     btnAceptar.Text = "Cerrar"
+                    btnCancelar.Enabled = False
                     If ventaActual IsNot Nothing Then
                         CargarDatosVenta()
                         BloquearControles()
-                        btnCancelar.Enabled = False
                     End If
             End Select
         Catch ex As Exception
-            MostrarError("Error al cargar el formulario: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al cargar el formulario: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -105,10 +110,17 @@
         cbProducto.Enabled = False
         nudCantidad.Enabled = False
         btnAgregarProducto.Enabled = False
+        txtTotal.Enabled = False
     End Sub
 
     Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
         Try
+            If itemsVenta.Count > 0 Then
+                MessageBox.Show("Por el momento solamente se puede ingresar un producto a la venta.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+
             If cbProducto.SelectedItem Is Nothing OrElse nudCantidad.Value <= 0 Then
                 MessageBox.Show("Seleccione un producto válido y una cantidad mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
@@ -132,10 +144,87 @@
 
             cbProducto.SelectedIndex = -1
             nudCantidad.Value = 0
+
         Catch ex As Exception
-            MostrarError("Error al agregar el producto: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al agregar el producto: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
+    'Private clienteSeleccionado As Cliente
+    'Private fechaVenta As DateTime
+    'Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+    '    Try
+    '        If clienteSeleccionado Is Nothing Then
+    '            If cbCliente.SelectedItem Is Nothing Then
+    '                MessageBox.Show("Debe seleccionar un cliente antes de agregar productos.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '                Return
+    '            End If
+
+    '            clienteSeleccionado = CType(cbCliente.SelectedItem, Cliente)
+    '            fechaVenta = dtpFecha.Value
+    '            cbCliente.Enabled = False
+    '            dtpFecha.Enabled = False
+    '        End If
+
+    '        If cbProducto.SelectedItem Is Nothing OrElse nudCantidad.Value <= 0 Then
+    '            MessageBox.Show("Seleccione un producto válido y una cantidad mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '            Return
+    '        End If
+
+    '        Dim productoSeleccionado As Producto = CType(cbProducto.SelectedItem, Producto)
+    '        Dim cantidad As Double = Convert.ToDouble(nudCantidad.Value)
+    '        Dim precioTotal As Double = productoSeleccionado.Precio * cantidad
+
+    '        Dim item As New VentaItem With {
+    '        .IDProducto = productoSeleccionado.ID,
+    '        .Cantidad = cantidad,
+    '        .PrecioUnitario = productoSeleccionado.Precio,
+    '        .PrecioTotal = precioTotal
+    '    }
+    '        itemsVenta.Add(item)
+    '        dgvItems.Rows.Add(item.IDProducto, item.Cantidad, item.PrecioUnitario, item.PrecioTotal)
+
+    '        CalcularTotal()
+
+    '        cbProducto.SelectedIndex = -1
+    '        nudCantidad.Value = 0
+
+    '    Catch ex As Exception
+    '        MostrarError("Error al agregar el producto: " & ex.Message)
+    '    End Try
+    'End Sub
+
+
+    'Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
+    '    Try
+    '        If cbProducto.SelectedItem Is Nothing OrElse nudCantidad.Value <= 0 Then
+    '            MessageBox.Show("Seleccione un producto válido y una cantidad mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+    '            Return
+    '        End If
+
+    '        Dim productoSeleccionado As Producto = CType(cbProducto.SelectedItem, Producto)
+    '        Dim cantidad As Double = Convert.ToDouble(nudCantidad.Value)
+    '        Dim precioTotal As Double = productoSeleccionado.Precio * cantidad
+
+    '        Dim item As New VentaItem With {
+    '        .IDProducto = productoSeleccionado.ID,
+    '        .Cantidad = cantidad,
+    '        .PrecioUnitario = productoSeleccionado.Precio,
+    '        .PrecioTotal = precioTotal
+    '    }
+
+    '        itemsVenta.Add(item)
+    '        dgvItems.Rows.Add(item.IDProducto, item.Cantidad, item.PrecioUnitario, item.PrecioTotal)
+
+    '        CalcularTotal()
+
+    '        cbProducto.SelectedIndex = -1
+    '        nudCantidad.Value = 0
+    '    Catch ex As Exception
+    '        MostrarError("Error al agregar el producto: " & ex.Message & vbNewLine & ex.StackTrace)
+    '    End Try
+    'End Sub
+
 
     Private Sub CalcularTotal()
         Dim total As Double = itemsVenta.Sum(Function(item) item.PrecioTotal)
@@ -183,20 +272,13 @@
             Me.Close()
 
         Catch ex As Exception
-            MostrarError("Error al procesar la venta: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al procesar la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         Me.DialogResult = DialogResult.Cancel
         Me.Close()
-    End Sub
-
-
-
-
-    Private Sub MostrarError(mensaje As String)
-        txtError.AppendText(mensaje & Environment.NewLine)
     End Sub
 
 End Class

@@ -9,14 +9,11 @@
             cbCampoBusqueda.Items.Add("Cliente")
             cbCampoBusqueda.Items.Add("Fecha")
             cbCampoBusqueda.Items.Add("Total")
-
             cbCampoBusqueda.Text = "Campo"
 
             CargarVentas()
         Catch ex As Exception
-            'MessageBox.Show($"Error al cargar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            MostrarError("Error: " & ex.Message & vbNewLine & ex.StackTrace)
-
+            MessageBox.Show($"Error al cargar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -25,7 +22,7 @@
             listaVentas = ventaNegocio.ListarVentas()
             ActualizarDataGridView(listaVentas)
         Catch ex As Exception
-            'MessageBox.Show($"Error al listar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show($"Error al listar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -53,9 +50,7 @@
             Dim ventasFiltradas As List(Of Venta) = ventaNegocio.FiltrarVentasPorCampo(campo, filtro)
             ActualizarDataGridView(ventasFiltradas)
         Catch ex As Exception
-            'MessageBox.Show($"Error al realizar la búsqueda avanzada: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            MostrarError("Error: " & ex.Message & vbNewLine & ex.StackTrace)
-
+            MessageBox.Show($"Error al realizar la búsqueda avanzada: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -83,9 +78,7 @@
 
             ActualizarDataGridView(listaFiltrada)
         Catch ex As Exception
-            'MessageBox.Show($"Error al filtrar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            MostrarError("Error: " & ex.Message & vbNewLine & ex.StackTrace)
-
+            MessageBox.Show($"Error al filtrar las ventas: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -96,9 +89,7 @@
                 CargarVentas()
             End If
         Catch ex As Exception
-            'MessageBox.Show($"Error al agregar la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            MostrarError("Error: " & ex.Message & vbNewLine & ex.StackTrace)
-
+            MessageBox.Show($"Error al agregar la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -120,7 +111,7 @@
                 MessageBox.Show("Debe seleccionar una venta para modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MostrarError("Error al modificar la venta: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al modificar la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -142,7 +133,8 @@
                 MessageBox.Show("Debe seleccionar una venta para eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MostrarError("Error al eliminar la venta: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al eliminar la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+
         End Try
     End Sub
 
@@ -162,7 +154,7 @@
                 MessageBox.Show("Debe seleccionar una venta para ver el detalle.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
-            MostrarError("Error al abrir el detalle de la venta: " & ex.Message & vbNewLine & ex.StackTrace)
+            MessageBox.Show($"Error al ver detalle de la venta: {ex.Message}{vbNewLine}{ex.StackTrace}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -177,11 +169,6 @@
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         Me.Close()
-    End Sub
-
-
-    Private Sub MostrarError(mensaje As String)
-        txtError.AppendText(mensaje & Environment.NewLine)
     End Sub
 
 End Class
