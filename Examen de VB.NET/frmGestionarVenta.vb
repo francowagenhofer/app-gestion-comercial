@@ -150,6 +150,7 @@
         End Try
     End Sub
 
+
     'Private clienteSeleccionado As Cliente
     'Private fechaVenta As DateTime
     'Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
@@ -190,41 +191,9 @@
     '        nudCantidad.Value = 0
 
     '    Catch ex As Exception
-    '        MostrarError("Error al agregar el producto: " & ex.Message)
+    '        MessageBox.Show("Error al agregar el producto: " & ex.Message)
     '    End Try
     'End Sub
-
-
-    'Private Sub btnAgregarProducto_Click(sender As Object, e As EventArgs) Handles btnAgregarProducto.Click
-    '    Try
-    '        If cbProducto.SelectedItem Is Nothing OrElse nudCantidad.Value <= 0 Then
-    '            MessageBox.Show("Seleccione un producto válido y una cantidad mayor a cero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-    '            Return
-    '        End If
-
-    '        Dim productoSeleccionado As Producto = CType(cbProducto.SelectedItem, Producto)
-    '        Dim cantidad As Double = Convert.ToDouble(nudCantidad.Value)
-    '        Dim precioTotal As Double = productoSeleccionado.Precio * cantidad
-
-    '        Dim item As New VentaItem With {
-    '        .IDProducto = productoSeleccionado.ID,
-    '        .Cantidad = cantidad,
-    '        .PrecioUnitario = productoSeleccionado.Precio,
-    '        .PrecioTotal = precioTotal
-    '    }
-
-    '        itemsVenta.Add(item)
-    '        dgvItems.Rows.Add(item.IDProducto, item.Cantidad, item.PrecioUnitario, item.PrecioTotal)
-
-    '        CalcularTotal()
-
-    '        cbProducto.SelectedIndex = -1
-    '        nudCantidad.Value = 0
-    '    Catch ex As Exception
-    '        MostrarError("Error al agregar el producto: " & ex.Message & vbNewLine & ex.StackTrace)
-    '    End Try
-    'End Sub
-
 
     Private Sub CalcularTotal()
         Dim total As Double = itemsVenta.Sum(Function(item) item.PrecioTotal)
